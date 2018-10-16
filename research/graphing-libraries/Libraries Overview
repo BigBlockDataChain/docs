@@ -1,0 +1,9 @@
+Cytoscape
+Website: http://js.cytoscape.org/
+Features: compound nodes, directed edges, curved edges, different layouts(for the graph), multiple graph instances
+Downsides: only has node graph abilities (create edges and nodes), unlike D3 where can make bar, line graphs, maps, etc
+
+WebCola
+Website: https://ialab.it.monash.edu/webcola/
+Features: very similar to cytoscape, can make 3d graphs
+Downsides: less scalable to very large graphs}
