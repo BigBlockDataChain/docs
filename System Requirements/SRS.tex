@@ -77,7 +77,7 @@ The other sections are organized into logical subsections. Section 2 outlines th
 
 \section{Overall Description}
 \subsection{Product Perspective}
-Our system is an independent cross-platform desktop note-taking system with the ability to manage files. It allows the user to take notes in a non-linear file traversal system along a hierarchical file system. Users will be able to view and modify their files as well as the relation between files. Besides for the desktop operating system, such as Windows and MacOS, the note-taking and file management system will not rely on any external software product. Nevertheless, in order to capture input from the user, the system requires either a keyboard, mouse, or touchpad. Users may choose to use a sketchpad or a digital pen instead of the aforementioned input systems and output devices. Some of the functionality in the system may require the use of external APIs; however, APIs will only act as add-on modules, and the core system that abstracts away hierarchical file management in the note-taking process will not be affected by the use of APIs.
+Our system is an independent cross-platform desktop note-taking system with the ability to manage files. It allows the user to take notes in a non-linear file traversal system along a hierarchical file system. Users will be able to view and modify their files as well as the relation between files. Besides for the desktop operating system, such as but not limited to Windows and MacOS, the note-taking and file management system will not rely on any external software product. Nevertheless, in order to capture input from the user, the system requires either a keyboard, mouse, or touchpad. Users may choose to use a sketchpad or a digital pen instead of the aforementioned input systems and output devices. Some of the functionality in the system may require the use of external APIs; however, APIs will only act as add-on modules, and the core system that abstracts away hierarchical file management in the note-taking process will not be affected by the use of APIs.
 
 Similar systems to Project Imacs include Microsoft OneNote and Emacs. These solutions allow users to take and save notes; however, they fail to address the following problems:
 
@@ -115,25 +115,61 @@ The following is a functional decomposition diagram details top-level functional
 \section{Functional Requirements}
 \subsection{Data Requirements}
 \begin{enumerate}[DR1]
-    \item The system shall allow the creation of files with text, pen-input, or images.
+    \item The system shall allow the creation of files.
+
+	Rationale: The creation of files is needed in order to allow the user to create notes.
+	\item The system shall allow the addition of text, pen-input, or images to files.
+
+	Rationale: The addition of text, pen-input, and images is neededed in order for the user to add content to their notes. Text, pen-input, and images were chosen as the required methods of input because it most closely relates to traditional note-taking using pen and paper. Relating Project Imacs to a familliar task will lower the cognitive effort required of the user to learn how to use the software.
     \item The system shall allow the editing of files.
+
+	Rationale: The editing of files is needed to allow the user to correct mistakes they made while taking notes.
+
+	\item The system shall allow the deletion of content from files.
+
+	Rationale: The deletion of content from files is needed to allow users to remove incorrect, unwanted, or redundant information from their notes.
     \item The system shall allow the saving of files.
+
+	Rationale: The saving of files is needed so that users will not have to re-enter their notes everytime they use the software.
     \item The system shall allow the retrieval of saved files.
+
+	Rationale: The user needs to be able to continue from a saved file or to read information from the saved file so that the information that the user previously entered is not lost.
     \item The system shall allow for the incorporation external files into the software ecosystem.
+
+	Rationale: Some users may have used other note-taking/mindmapping software before Project Imacs, and this requirement will facilitate their transition to Project Imacs resulting in a more intuitive user experience.
     \item The system shall allow files to be assigned tags.
+
+	Rationale: Having a tag on files will allow users to provide context and descriptions for a file, and it will also facilitate the semantic search function defined in DR14, and the visualization requirement defined in UIR3.
     \item The system shall allow files to be grouped together.
+
+	Rationale: Allowing files to be grouped together will allow the system to better visualize the relationship between files in requirement UIR2. It will also facilitate the semantic search function defined in requirement DR14.
     \item The system shall allow a label to be assigned to a group.
+
+	Rationale: Allowing a label to be assigned to a group will enable the computer to visualize the label defined in UIR4, and it will aid in the semantic search function defined in requirement DR14.
     \item The system shall allow relationships to be specified between groups of files.
+
+	Rationale: Allowing relationships to be specified between groups of files will allow the user to draw conclusions about how different notes relate to each other.
     \item The system shall allow modification of the relationships between groups of files.
+
+	Rationale: Allowing the modification of relationships between groups of files is needed because the relationship between different group of files may change, and notes that were related in the past may not be related in the future.
     \item The system shall allow jumping between related groups of files.
+
+	Rationale: Quick navigation between related groups of files is needed in order to facilitate an intuitive user experience.
     \item The system shall allow searching for files semantically.
+
+	Rationale: Current note-taking and mind-mapping software does not allow users to search for content semantically; instead, they only allow users to search in-line text using exact word search or regular expression matching. Allowing users to search semantically will provide a better user experience that more naturally mimics human thought.
+
     \item The system shall allow the deletion of files.
+	
+	Rationale: The deletion of files is needed because the user will want to delete any notes that are no longer needed.
 \end{enumerate}
 
 \subsection{User Interface Requirements}
 \begin{enumerate}[U{I}R1]
     \item The system shall display the files stored within its ecosystem.
     \item The system shall visualize the relationship between groups of files.
+	\item The system shall display the tags associated with a file when the file is highlighted.
+	\item The system shall display the label associated with a group of files when the group of files is presented on an output device.
     \item The system shall show an interface for manipulating human-readable files.
     \item The system shall allow navigation between relationships between groups of files.
     \item The system shall allow users to change the notes visible on their screen.
