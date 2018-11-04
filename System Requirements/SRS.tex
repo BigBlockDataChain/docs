@@ -185,7 +185,6 @@ The following is a functional decomposition diagram details top-level functional
     \item The system shall allow users to change the notes visible on their screen.
 
 	Rationale: The user may want to focus on a particular note, or decide to focus on a particular group of notes rather than the entire set of notes in the software ecosystem. In this case, the user must also be able to change the notes they see on the screen so that they are not permanently limited to seeing the notes that they decided to initially focus in on.
-
     \item The system shall render images and plaintext files in a human usable format.
 
 	Rationale: Showing files in a human-readable format makes the user experience more intuitive because the user does not have to learn a new way of reading their notes.
@@ -196,131 +195,191 @@ The following is a functional decomposition diagram details top-level functional
 \subsubsection{Appearance Requirements}
 \begin{enumerate}[{A}PR1]
     \item The application shall use appropriate font styling given the type and location of the text.
+
+	Rationale: Appropriate font styling and location of text is important to providing an intuitive user experience. If the font styling is inappropriate, the user may feel uncomfortable using it in professional environments. If the location of the text is inappropriate, the user may become frustrated trying to figure out where the different functions are located.
     \item The application shall not have clashing colours that would make readability challenging for the user.
+
+	Rationale: Clashing colours could make it uncomfortable for some users to use the application, and users who feel strained by the colours may be discouraged from using the software.
     \item The application shall visually resemble other business and note-taking applications.
+
+	Rationale: Having the application visually resemble other business and note-taking applications will allow the user to learn how to use the software faster. When users use the software, the bring with them past experience using other software. Their existing knowledge can be leveraged by using the same metaphores in the user interface for Project Imacs. This improves the user experience for the user.
     \item The application shall prohibit users from interacting with the interactive elements that lead to invalid operations.
+
+	Rationale: When learning how to use our software, the user may inadvertently interact with interactive elements that could lead to data corruption or data loss if unguarded. This could lead to dissatisfaction or financial damage. Guarding users from performing invalid operations will protect the user against corrupting their own files.
 \end{enumerate}
 
 \subsubsection{Style Requirements}
 \begin{enumerate}[STR1]
-    \item The application shall have a style similar to other applications used in business and professional environments.
     \item The visual style, colour palette, and fonts shall remain consistent throughout the application.
+
+	Rationale: Having consistent styling, colours, and fonts will improve the user experience because the user can learn to infer meaning, behaviour, and outcomes from interactive elements with certain colours.
 \end{enumerate}
 
 \subsection{Usability and Humanity Requirements}
 \subsubsection{Ease of Use Requirements}
 \begin{enumerate}[EUR1]
     \item The application shall make the important features stand out.
+
+	Rationale: Having important features stand out improves user experience because it allows the user to find the most pertinent operations in the fastest time.
     \item The application shall make the important features easily accessible.
+
+	Rationale: Having important features easily accessible is improves user experience because it allows the user to perform the most pertinent operations in the fastest time.
 \end{enumerate}
 
 \subsubsection{Learning Requirements}
 \begin{enumerate}[LER1]
     \item The product shall not require more than 2 hours of training before the user can access more than 75\% of the operations specified in the functional requirements.
+	
+	Rationale: WRITE SOMETHING HERE
 \end{enumerate}
 
 \subsubsection{Understandability and Politeness Requirements}
 \begin{enumerate}[UPR1]
     \item The application shall have intuitive icons and appropriate names to describe the function of its interactive elements.
+
+	Rationale: Having intuitive icons and appropriate names to describe the function of the software's interactive elements allows the user to leverage past experiences to learn how to use Project Imacs faster.
 \end{enumerate}
 
 \subsubsection{Accessibility Requirements}
 \begin{enumerate}[{A}CR1]
     \item Text and graphic components shall be clearly distinguishable on the application interface.
-    \item The application shall use a font size large enough to allow users to read the text in a brightly lit indoor room.
-    \item The application shall be usable by colour blind users.
+
+	Rationale: The user needs to be able to see the text and graphics in order to use the software.
+    \item The application shall use a font size large enough to allow users to read the text.
+
+	Rationale: A small font size that is hard to read decreases usability because users will detract the user from the benefits of the program because they will spend time trying to read the text instead of taking notes. This may cause frustration and users may be discouraged from using the program.
 \end{enumerate}
 
 \subsection{Performance Requirements}
 \subsubsection{Speed and Latency Requirements}
 \begin{enumerate}[SLR1]
-    \item The system shall respond in near real-time except in the cases of file searches and file operations.
-    \item The system shall perform search queries in less than 1 second.
-    \item The system shall open files and be ready for I/O operations in less than 3 seconds.
+    \item The system shall respond in real-time except in the cases of file searches and file operations.
+
+	Rationale: Current note-taking programs like OneNote operate in real-time and if the user experiences significant lag when typing or writing, then they will use another note-taking application instead.
+    \item The system shall perform search queries in less than 1 second per gigabyte of files in the software ecosystem.
+
+	Rationale: The user will not want to use software that take a long time to perform a search operation. A long delay may be percieved as faulty, and the user will stop using the software. 1 second per gigabyte was chosen because in an informal experiment performed by the group, it took on average 1 second to search for a file on the Windows operating system on a hard drive with 30GB of data. Given that semantic search is more complicated than inline text search, the rate of 1 second for 30GB of data was reduced to 1 second for 1GB of data.
+
+    \item The system shall open files and be ready for I/O operations in less than 2 seconds.
+
+	Rationale: Users would not want to wait for a long time before they are able to use the application. 2 seconds was chosen because, in an informal experiment performed by the group, it took on average 2 seconds to open Microsoft OneNote, another note-taking application.
 \end{enumerate}
 
 \subsubsection{Reliability and Availability Requirements}
 \begin{enumerate}[R{A}R1]
-    \item The system shall have a 99\% uptime.
+    \item The system shall have a 100\% uptime.
+
+	Rationale: Given that this application is a desktop application with no dependencies on external servers, the system should be up as long as the user's computer is operational.
     \item The system shall always make all data stored within its ecosystem available to the user through the application and through the user's operating system's default file management system.
+
+	Rationale: The requirement improves overall user experience because it allows the user to modify the files using more specialized software if they desire before returning to Project Imacs.
 \end{enumerate}
 
 \subsubsection{Robustness or Fault-Tolerance Requirements}
 \begin{enumerate}[RFR1]
     \item The system will keep data integrity upon spontaneous shutdown.
+
+	Rationale: The user should not lose data they previously saved if the system spontaneously shuts down, and the file contents should not be changed as to not confuse the user.
     \item The system will automatically create backups of data.
+
+	Rationale: Automatically backing up the data will help ensure data integrity in the event of a system failure.
 \end{enumerate}
 
 \subsubsection{Capacity Requirements}
 \begin{enumerate}[CR1]
     \item The system must allow individual file sizes of up to 4GB.
+
+	Rationale: The maximum file amount of RAM supported by a 32-bit system is 4GB, and allowing file sizes up to 4GB ensures cross-compatability between 32-bit and 64-bit systems.
     \item The system must allow total capacity file sizes of at least 128GB.
+
+	Rationale: Many laptops today have a minimum capacity of 128GB. This requirement ensures that the application will be supported on most modern day laptops.
 \end{enumerate}
 
 \subsubsection{Scalability or Extensiblity Requirements}
 \begin{enumerate}[SER1]
     \item The system shall be forwards compatible with new file formats.
-    \item The system shall be open for addition of new features.
+
+	Rationale: File formats and the kinds of data represented on computers change over time, and this requirement ensures that the software will be compatable with future file formats.
     \item The system shall make its data available in a human-readable, non-proprietary format.
+
+	Rationale: This requirement improves user experience because it provides users with an audit trail of the software's operations.
 \end{enumerate}
 
 \subsubsection{Longevity Requirements}
 \begin{enumerate}[LOR1]
     \item The system shall use current software engineering standards and protocols.
-\end{enumerate}
 
-\subsection{Operational and Environmental Requirements}
-\subsubsection{Expected Physical Environment Requirements}
-\begin{enumerate}[EPE1]
-    \item The application shall be used in calm environmental conditions.
+	Rationale: Using current standards and protocols allows for a mutual understanding between the engineers and developers of the software, and it allows the software to be maintained easier by future stakeholders.
 \end{enumerate}
 
 \subsubsection{Requirements for Interfacing with Adjacent Systems}
 \begin{enumerate}[R{I}{A}1]
-    \item The application shall interface with Windows, MacOS, and Linux platforms.
+    \item The application shall interface with all operating systems with a file system and a graphical user interface.
+
+	Rationale: The application should be platform-independent as long as the operating system provides the required components because different users may use different devices to access the application. This increases the overall reach of the software.
     \item The application shall interface with the files provided by the user.
+
+	Rationale: Users may have existing notes on their computers that they want to import into Project Imacs' software ecosystem, and enabling this lowers the barrier to entry for the user.
 \end{enumerate}
 
 \subsubsection{Productization Requirements}
 \begin{enumerate}[PRO1]
     \item The product shall be distributed as an executable file corresponding to the interfaced platform.
-    \item The product shall be offered to users free of charge.
+
+	Rationale: The user needs to be able to run the software.
 \end{enumerate}
 
 \subsubsection{Release Requirements}
 \begin{enumerate}[RR1]
-    \item New releases of the product shall be produced in conjunction with stakeholder feedback.
+    \item New releases of the product shall be produced in conjunction with stakeholder and user feedback.
+
+	Rationale: In order to improve the product, stakeholders and users need to be consulted as they provide a different perspective of the software than the engineers.
 \end{enumerate}
 
 \subsection{Maintainability and Support Requirements}
 \subsubsection{Maintenance Requirements}
 \begin{enumerate}[MR1]
-    \item The software shall not be in maintenance and inaccessible to the user for more than 2 hours each day.
-    \item The software shall be maintained at night in North America to affect the least amount of North American users.
+    \item Maintainance of the software should not render the user's local copy unusable.
+
+	Rationale: As a standalone program, the user's software should not be affected by the maintainance of the code.
 \end{enumerate}
 
 \subsubsection{Supportability Requirements}
 \begin{enumerate}[SUR1]
     \item The software shall provide access to a help manual.
+
+	Rationale: Users may have questions about how to use certain features and functions of the software, and the help manual will provide users with that information.
     \item A tutorial on the application's functionality shall be presented the first time the software is launched.
+
+	Rationale: The tutorial will help first-time users become proficient at the software quickly so that they can spend more time creating notes. This improves overall user experience.
 \end{enumerate}
 
 \subsection{Security Requirements}
 \subsubsection{Access Requirements}
 \begin{enumerate}[{A}CR1]
     \item The system shall store associated files in a user-accessible location.
+
+	Rationale: The notes should not be hidden because users may decide to migrate from Project Imacs to another software application.
 \end{enumerate}
 
 \subsubsection{Integrity Requirements}
 \begin{enumerate}[{I}NT1]
     \item The system shall not introduce security vulnerabilities to the underlying OS file system structures.
+
+	Rationale: Users will not use a program if it compromises their computer system.
     \item The system shall not create, corrupt, modify, or delete files not managed by the system.
+
+	Rationale: Users will not use a program if it could potentially damage the user's existing files.
 \end{enumerate}
 
 \subsubsection{Privacy Requirements}
 \begin{enumerate}[PR{I}1]
     \item The system shall not transmit or share the user's file contents and information.
+
+	Rationale: Users will not use a program if they found out that the software exposed their personal information to the public without their knowledge.
     \item The system shall explicitly prompt the user to agree to any use of the user's data deviating from the core file management and manipulation functionality.
+
+	Rationale: Users will not use a program if they find out that it reads files that it is not suppose to without the user's consent.
 \end{enumerate}
 
 \section{User Profiles and Personas}
