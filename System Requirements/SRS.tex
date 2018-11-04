@@ -1,0 +1,260 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Requirements Document}
+\author{Kelvin Lin\\ Jiahong Dong\\ Liam Casola\\ Varun Hooda\\ Mikolaj Hrycko\\ Danish Khan\\ Prince Sandu\\ Baltej Toor }
+\date{November 2nd 2018}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+This section outlines the purpose and scope of Project Imacs, along with definitions, acronyms, and abbreviations used within this document. Its purpose is to set the context for the contents and organization of the software requirement document.
+
+\subsection{Purpose}
+This document's purpose is to outline the engineering and business decisions made in designing Project Imacs. This document will be used to maintain a record of the project's scope, constraints, assumptions, dependencies, functional requirements, non-functional requirements, and any other design decisions made over the life of this project.
+
+The target audience for this document are the stakeholders of this projects as well as any future software architects, designers, developers, and engineers.
+
+\subsection{Scope}
+This project will produce the following software products:
+
+\begin{itemize}
+    \item A desktop client application.
+    \item A custom-made file system mapping a non-linear file structure to a linear one.
+\end{itemize}
+
+The aforementioned product will perform the following:
+
+\begin{itemize}
+    \item Provide users with a graphical interface to organize files in a semantically consistent manner.
+    \item Provide users with a graphical interface to create and edit files.
+    \item Provide a means of persistent storage and retrieval of files.
+\end{itemize}
+
+The aforementioned product will not perform the following:
+
+\begin{itemize}
+    \item Alter files outside the software ecosystem.
+    \item Persist files outside the user's local machine.
+    \item Infer relationships between files.
+    \item Automatically populate files with content.
+\end{itemize}
+
+\subsection{Definitions, Acronyms, and Abbreviations}
+\textbf{Note}: A note is a file stored on the computer. A note can be of any extension or file encoding.
+\textbf{Group of Notes}: A group of notes is a user-defined non-empty set of notes that are related to each other.
+\textbf{Jump}: A jump is an operation that allows users to navigate the view between two linked groups of notes.
+\textbf{Label}: A label is a unique user-defined textual description assigned to a group of notes to provide semantics to a group of notes.
+\textbf{Relation}: A relation is a link between two different group of notes.
+\textbf{Tag}: A tag is a user-defined textual description assigned to provide context to a note. A note can have multiple tags.
+
+\subsection{Overview}
+The rest of this document contains detailed descriptions of the project's design decisions: assumptions, functionality, functional requirements, and non-functional requirements.
+
+The other sections are organized into logical subsections. Section 2 outlines the overall product description with its various subsections. Section 3 will list the requirements. The functional requirements are organized by business events and viewpoints. Non-functional requirements are organized into various subcategories.
+
+\section{Overall Description}
+\subsection{Product Perspective}
+Our system is an independent cross-platform desktop note-taking system with the ability to manage files. It allows the user to take notes in a non-linear file traversal system along a hierarchical file system. Users will be able to view and modify their files as well as the relation between files. Besides for the desktop operating system, such as Windows and MacOS, the note-taking and file management system will not rely on any external software product. Nevertheless, in order to capture input from the user, the system requires either a keyboard, mouse, or touchpad. Users may choose to use a sketchpad or a digital pen instead of the aforementioned input systems and output devices. Some of the functionality in the system may require the use of external APIs; however, APIs will only act as add-on modules, and the core system that abstracts away hierarchical file management in the note-taking process will not be affected by the use of APIs.
+
+Similar systems to Project Imacs include Microsoft OneNote and Emacs. These solutions allow users to take and save notes; however, they fail to address the following problems:
+
+\begin{itemize}
+    \item They do not allow the user to link physical files on their drive without duplicating the file or its contents resulting in lots of redundant information.
+    \item They do not allow for a distributed file handling format, resulting in large files that may be slow to load and corruption to the file may result in a lot of data loss.
+    \item The user can manually recreate a non-linear file system by creating separate folders; however, this will not allow them to visualize the relationship between the files.
+\end{itemize}
+
+Project Imacs will enable the user to group correlated notes in groups and non-hierarchically save them to the local machine.
+
+\subsection{Product Functions}
+In addition to the general note-taking functions that can be found in similar products, Project Imacs allows users to tag their notes, create relationship between correlated notes based on tags, and put these notes into groups. Users will be able to attache desired files to their notes. Users will also be able to save their notes in a non-hierarchical fashion on their local machines.
+
+\subsection{User Characteristics}
+Our note-taking system is intended for the general computer user with the desire to take notes and organize them in a non-linear manner. Potential users could be high school students, university students, working age adults, and mature adults.
+
+\subsection{Constraints}
+The system shall be constrained only by the user's operating system, and the physical computer hardware configurations.
+
+\subsection{Assumptions and Dependencies}
+It shall be assumed that the user does not violate any of the operating system's constraints. It shall also be assumed that the user is able and willing to use the appropriate hardware peripherals required to operate the system.
+It shall be assumed that the user agrees to the terms and conditions of any licensing requirements specified by the APIs used in our application.
+
+\section{Context Diagram}
+The following context diagram illustrates the boundary of the Project Imacs system. The data element represent all utilized file system content and metadata. The Graphical User Interface component of Project Imacs provides the interface for the graphical manipulation of the data.
+
+(INSERT DIAGRAM HERE)
+
+\section{Functional Decomposition Diagram}
+The following is a functional decomposition diagram details top-level functional hierarchy of Project Imacs.
+
+(INSERT DIAGRAM HERE)
+
+\section{Functional Requirements}
+\subsection{Data Requirements}
+\begin{enumerate}
+    \item The system shall allow the creation of files with text, pen-input, or images.
+    \item The system shall allow the editing of files.
+    \item The system shall allow the saving of files.
+    \item The system shall allow the retrieval of saved files.
+    \item The system shall allow for the incorporation external files into the software ecosystem.
+    \item The system shall allow files to be assigned tags.
+    \item The system shall allow files to be grouped together.
+    \item The system shall allow a label to be assigned to a group.
+    \item The system shall allow relationships to be specified between groups of files.
+    \item The system shall allow modification of the relationships between groups of files.
+    \item The system shall allow jumping between related groups of files.
+    \item The system shall allow searching for files semantically.
+    \item The system shall allow the deletion of files.
+\end{enumerate}
+
+\subsection{User Interface Requirements}
+\begin{itemize}
+    \item The system shall display the files stored within its ecosystem.
+    \item The system shall visualize the relationship between groups of files.
+    \item The system shall show an interface for manipulating human-readable files.
+    \item The system shall allow navigation between relationships between groups of files.
+    \item The system shall allow users to change the notes visible on their screen.
+    \item The system shall render images and plaintext files in a human usable format.
+\end{itemize}
+
+\section{Non-Functional Requirements}
+\subsection{Look and Feel Requirements}
+\subsubsection{Appearance Requirements}
+\begin{enumerate}
+    \item The application shall use appropriate font styling given the type and location of the text.
+    \item The application shall not have clashing colours that would make readability challenging for the user.
+    \item The application shall visually resemble other business and note-taking applications.
+    \item The application shall prohibit users from interacting with the interactive elements that lead to invalid operations.
+\end{enumerate}
+
+\subsubsection{Style Requirements}
+\begin{enumerate}
+    \item The application shall have a style similar to other applications used in business and professional environments.
+    \item The visual style, colour palette, and fonts shall remain consistent throughout the application.
+\end{enumerate}
+
+\subsection{Usability and Humanity Requirements}
+\subsubsection{Ease of Use Requirements}
+\begin{enumerate}
+    \item The application shall make the important features stand out.
+    \item The application shall make the important features easily accessible.
+\end{enumerate}
+
+\subsubsection{Learning Requirements}
+\begin{enumerate}
+    \item The product shall not require more than 2 hours of training before the user can access more than 75\% of the operations specified in the functional requirements.
+\end{enumerate}
+
+\subsubsection{Understandability and Politeness Requirements}
+\begin{enumerate}
+    \item The application shall have intuitive icons and appropriate names to describe the function of its interactive elements.
+\end{enumerate}
+
+\subsubsection{Accessibility Requirements}
+\begin{enumerate}
+    \item Text and graphic components shall be clearly distinguishable on the application interface.
+    \item The application shall use a font size large enough to allow users to read the text in a brightly lit indoor room.
+    \item The application shall be usable by colour blind users.
+\end{enumerate}
+
+\subsection{Performance Requirements}
+\subsubsection{Speed and Latency Requirements}
+\begin{enumerate}
+    \item The system shall respond in near real-time except in the cases of file searches and file operations.
+    \item The system shall perform search queries in less than 1 second.
+    \item The system shall open files and be ready for I/O operations in less than 3 seconds.
+\end{enumerate}
+
+\subsubsection{Safety-Critical Requirements}
+\begin{enumerate}
+    \item The system shall ensure the integrity of the data stored within it.
+\end{enumerate}
+
+\subsubsection{Reliability and Availability Requirements}
+\begin{enumerate}
+    \item The system shall have a 99\% uptime.
+    \item The system shall always make all data stored within its ecosystem available to the user through the application and through the user's operating system's default file management system.
+\end{enumerate}
+
+\subsubsection{Robustness or Fault-Tolerance Requirements}
+\begin{enumerate}
+    \item The system will keep data integrity upon spontaneous shutdown.
+    \item The system will automatically create backups of data.
+\end{enumerate}
+
+\subsubsection{Capacity Requirements}
+\begin{enumerate}
+    \item The system must allow individual file sizes of up to 4GB.
+    \item The system must allow total capacity file sizes of at least 128GB.
+\end{enumerate}
+
+\subsubsection{Scalability or Extensiblity Requirements}
+\begin{enumerate}
+    \item The system shall be forwards compatible with new file formats.
+    \item The system shall be open for addition of new features.
+    \item The system shall make its data available in a human-readable, non-proprietary format.
+\end{enumerate}
+
+\subsubsection{Longevity Requirements}
+\begin{enumerate}
+    \item The system shall use current software engineering standards and protocols.
+\end{enumerate}
+
+\subsection{Operational and Environmental Requirements}
+\subsubsection{Expected Physical Environment}
+\begin{enumerate}
+    \item The application shall be used in calm environmental conditions.
+\end{enumerate}
+
+\subsubsection{Requirements for Interfacing with Adjacent Systems}
+\begin{enumerate}
+    \item The application shall interface with Windows, MacOS, and Linux platforms.
+    \item The application shall interface with the files provided by the user.
+\end{enumerate}
+
+\subsubsection{Productization Requirements}
+\begin{enumerate}
+    \item The product shall be distributed as an executable file corresponding to the interfaced platform.
+    \item The product shall be offered to users free of charge.
+\end{enumerate}
+
+\subsubsection{Release Requirements}
+\begin{enumerate}
+    \item New releases of the product shall be produced in conjunction with stakeholder feedback.
+\end{enumerate}
+
+\subsection{Maintainability and Support Requirements}
+\subsubsection{Maintenance Requirements}
+\begin{enumerate}
+    \item The software shall not be in maintenance and inaccessible to the user for more than 2 hours each day.
+    \item The software shall be maintained at night in North America to affect the least amount of North American users.
+\end{enumerate}
+
+\subsubsection{Supportability Requirements}
+\begin{enumerate}
+    \item The software shall provide access to a help manual.
+    \item A tutorial on the application's functionality shall be presented the first time the software is launched.
+\end{enumerate}
+
+\subsection{Security Requirements}
+\subsubsection{Access Requirements}
+\begin{enumerate}
+    \item The system shall store associated files in a user-accessible location.
+\end{enumerate}
+
+\subsubsection{Integrity Requirements}
+\begin{enumerate}
+    \item The system shall not introduce security vulnerabilities to the underlying OS file system structures.
+    \item The system shall not create, corrupt, modify, or delete files not managed by the system.
+\end{enumerate}
+
+\subsubsection{Privacy Requirements}
+\begin{enumerate}
+    \item The system shall not transmit or share the user's file contents and information.
+    \item The system shall explicitly prompt the user to agree to any use of the user's data deviating from the core file management and manipulation functionality.
+\end{enumerate}
+
+\end{document}
