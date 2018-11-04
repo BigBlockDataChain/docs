@@ -112,6 +112,12 @@ Similar systems to Project Imacs include Microsoft OneNote and Emacs. These solu
 
 Project Imacs will enable the user to group correlated notes in groups and non-hierarchically save them to the local machine.
 
+\subsubsection{Monitored Variables}
+The monitored variables are the mouse, keyboard, and pen/stylus input devices.
+
+\subsubsection{Controlled Variables}
+The controlled variable is the data displayed on the monitor or screen.
+
 \subsection{Product Functions}
 In addition to the general note-taking functions that can be found in similar products, Project Imacs allows users to tag their notes, create relationship between correlated notes based on tags, and put these notes into groups. Users will be able to attach desired files to their notes. Users will also be able to save their notes in a non-hierarchical fashion on their local machines.
 
@@ -407,6 +413,12 @@ Rationale: Users will not use a program if they found out that the software expo
 
 Rationale: Users will not use a program if they find out that it reads files that it is not supposed to without the user's consent.
 \end{enumerate}
+
+\section{Normal Operations}
+The system shall primarily allow users to create, modify, delete, group, and specify relationships between groups of notes. It should also allow users to tag notes, label groups of notes, and semantically search for notes.
+
+\section{Undesired Event Handling}
+The software shall prohibit the user from making invalid actions by disabling input to interactive elements that lead to invalid operations. Additionally, to handle spontaneous or unexpected system failure, the software shall create perodic backups of the user's data. File encryption may also be explored in order to reduce the blast radius of information compromised by a malicious agent.
 
 \section{Anticipated Changes}
 \subsection{Likely Changes}
