@@ -124,7 +124,6 @@ The following is a functional decomposition diagram details top-level functional
     \item The system shall allow the editing of files.
 
 	Rationale: The editing of files is needed to allow the user to correct mistakes they made while taking notes.
-
 	\item The system shall allow the deletion of content from files.
 
 	Rationale: The deletion of content from files is needed to allow users to remove incorrect, unwanted, or redundant information from their notes.
@@ -158,7 +157,6 @@ The following is a functional decomposition diagram details top-level functional
     \item The system shall allow searching for files semantically.
 
 	Rationale: Current note-taking and mind-mapping software does not allow users to search for content semantically; instead, they only allow users to search in-line text using exact word search or regular expression matching. Allowing users to search semantically will provide a better user experience that more naturally mimics human thought.
-
     \item The system shall allow the deletion of files.
 	
 	Rationale: The deletion of files is needed because the user will want to delete any notes that are no longer needed.
@@ -167,13 +165,30 @@ The following is a functional decomposition diagram details top-level functional
 \subsection{User Interface Requirements}
 \begin{enumerate}[U{I}R1]
     \item The system shall display the files stored within its ecosystem.
+
+	Rationale: The system needs to be able to display the files stored within its ecosystem because the user needs to be able to see their notes in order to read or make changes to them.
     \item The system shall visualize the relationship between groups of files.
+
+	Rationale: The user needs to be able to see a visualization of the relationship between the groups of files because it will help them draw conclusions between how different sets of notes relate to each other.
 	\item The system shall display the tags associated with a file when the file is highlighted.
+
+	Rationale: Displaying tags is an important feature for enhancing usability because users can quickly see the context of the note and what the note is about.
 	\item The system shall display the label associated with a group of files when the group of files is presented on an output device.
+
+	Rationale: Displaying labels is an important feature because it allows users to see what each group of files represents, and this enhances the user experience.
     \item The system shall show an interface for manipulating human-readable files.
+
+	Rationale: The user needs to be able to see the note in order to edit it.
     \item The system shall allow navigation between relationships between groups of files.
+
+	Rationale: The user needs to be able to move between different files in order to modify different files.
     \item The system shall allow users to change the notes visible on their screen.
+
+	Rationale: The user may want to focus on a particular note, or decide to focus on a particular group of notes rather than the entire set of notes in the software ecosystem. In this case, the user must also be able to change the notes they see on the screen so that they are not permanently limited to seeing the notes that they decided to initially focus in on.
+
     \item The system shall render images and plaintext files in a human usable format.
+
+	Rationale: Showing files in a human-readable format makes the user experience more intuitive because the user does not have to learn a new way of reading their notes.
 \end{enumerate}
 
 \section{Non-Functional Requirements}
