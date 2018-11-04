@@ -1,14 +1,20 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
 
-\title{Requirements Document}
-\author{Kelvin Lin\\ Jiahong Dong\\ Liam Casola\\ Varun Hooda\\ Mikolaj Hrycko\\ Danish Khan\\ Prince Sandu\\ Baltej Toor }
-\date{November 2nd 2018}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{enumerate}
+
+\title{Project Imacs: System Requirements Specifications}
+\author{Group 16:\\ Kelvin Lin\\ Jiahong Dong\\ Liam Casola\\ Varun Hooda\\ Mikolaj Hrycko\\ Danish Khan\\ Prince Sandu\\ Baltej Toor }
+\date{November 2\textsuperscript{nd} 2018}
 
 \begin{document}
 
 \maketitle
-
+\newpage
+\tableofcontents
+\newpage
 \section{Introduction}
 This section outlines the purpose and scope of Project Imacs, along with definitions, acronyms, and abbreviations used within this document. Its purpose is to set the context for the contents and organization of the software requirement document.
 
@@ -43,12 +49,26 @@ The aforementioned product will not perform the following:
 \end{itemize}
 
 \subsection{Definitions, Acronyms, and Abbreviations}
-\textbf{Note}: A note is a file stored on the computer. A note can be of any extension or file encoding.
-\textbf{Group of Notes}: A group of notes is a user-defined non-empty set of notes that are related to each other.
-\textbf{Jump}: A jump is an operation that allows users to navigate the view between two linked groups of notes.
-\textbf{Label}: A label is a unique user-defined textual description assigned to a group of notes to provide semantics to a group of notes.
-\textbf{Relation}: A relation is a link between two different group of notes.
-\textbf{Tag}: A tag is a user-defined textual description assigned to provide context to a note. A note can have multiple tags.
+\subsubsection{File}
+A file is a collection of data stored on the computer that can be intepreted into human-usable information by a computer.
+
+\subsubsection{Group of Files}
+A group of files is a user-defined non-empty set of files that are related to each other.
+
+\subsubsection{Jump}
+A jump is an operation that allows users to navigate the view between two related groups of files.
+
+\subsubsection{Label}
+A label is a unique user-defined textual description assigned to a group of files to provide semantics for that group of files.
+
+\subsubsection{Relation}
+A relation is a link between two different groups of files.
+
+\subsubsection{Tag}
+A tag is a user-defined textual description assigned to provide context to a file.
+
+\subsection{References}
+This section is void.
 
 \subsection{Overview}
 The rest of this document contains detailed descriptions of the project's design decisions: assumptions, functionality, functional requirements, and non-functional requirements.
@@ -85,16 +105,16 @@ It shall be assumed that the user agrees to the terms and conditions of any lice
 \section{Context Diagram}
 The following context diagram illustrates the boundary of the Project Imacs system. The data element represent all utilized file system content and metadata. The Graphical User Interface component of Project Imacs provides the interface for the graphical manipulation of the data.
 
-(INSERT DIAGRAM HERE)
+\includegraphics[scale=0.5]{context_diagram.png}
 
 \section{Functional Decomposition Diagram}
 The following is a functional decomposition diagram details top-level functional hierarchy of Project Imacs.
 
-(INSERT DIAGRAM HERE)
+\includegraphics[scale=0.5]{functional_decomposition_diagram.png}
 
 \section{Functional Requirements}
 \subsection{Data Requirements}
-\begin{enumerate}
+\begin{enumerate}[DR1]
     \item The system shall allow the creation of files with text, pen-input, or images.
     \item The system shall allow the editing of files.
     \item The system shall allow the saving of files.
@@ -111,19 +131,19 @@ The following is a functional decomposition diagram details top-level functional
 \end{enumerate}
 
 \subsection{User Interface Requirements}
-\begin{itemize}
+\begin{enumerate}[U{I}R1]
     \item The system shall display the files stored within its ecosystem.
     \item The system shall visualize the relationship between groups of files.
     \item The system shall show an interface for manipulating human-readable files.
     \item The system shall allow navigation between relationships between groups of files.
     \item The system shall allow users to change the notes visible on their screen.
     \item The system shall render images and plaintext files in a human usable format.
-\end{itemize}
+\end{enumerate}
 
 \section{Non-Functional Requirements}
 \subsection{Look and Feel Requirements}
 \subsubsection{Appearance Requirements}
-\begin{enumerate}
+\begin{enumerate}[{A}PR1]
     \item The application shall use appropriate font styling given the type and location of the text.
     \item The application shall not have clashing colours that would make readability challenging for the user.
     \item The application shall visually resemble other business and note-taking applications.
@@ -131,30 +151,30 @@ The following is a functional decomposition diagram details top-level functional
 \end{enumerate}
 
 \subsubsection{Style Requirements}
-\begin{enumerate}
+\begin{enumerate}[STR1]
     \item The application shall have a style similar to other applications used in business and professional environments.
     \item The visual style, colour palette, and fonts shall remain consistent throughout the application.
 \end{enumerate}
 
 \subsection{Usability and Humanity Requirements}
 \subsubsection{Ease of Use Requirements}
-\begin{enumerate}
+\begin{enumerate}[EUR1]
     \item The application shall make the important features stand out.
     \item The application shall make the important features easily accessible.
 \end{enumerate}
 
 \subsubsection{Learning Requirements}
-\begin{enumerate}
+\begin{enumerate}[LER1]
     \item The product shall not require more than 2 hours of training before the user can access more than 75\% of the operations specified in the functional requirements.
 \end{enumerate}
 
 \subsubsection{Understandability and Politeness Requirements}
-\begin{enumerate}
+\begin{enumerate}[UPR1]
     \item The application shall have intuitive icons and appropriate names to describe the function of its interactive elements.
 \end{enumerate}
 
 \subsubsection{Accessibility Requirements}
-\begin{enumerate}
+\begin{enumerate}[{A}CR1]
     \item Text and graphic components shall be clearly distinguishable on the application interface.
     \item The application shall use a font size large enough to allow users to read the text in a brightly lit indoor room.
     \item The application shall be usable by colour blind users.
@@ -162,99 +182,107 @@ The following is a functional decomposition diagram details top-level functional
 
 \subsection{Performance Requirements}
 \subsubsection{Speed and Latency Requirements}
-\begin{enumerate}
+\begin{enumerate}[SLR1]
     \item The system shall respond in near real-time except in the cases of file searches and file operations.
     \item The system shall perform search queries in less than 1 second.
     \item The system shall open files and be ready for I/O operations in less than 3 seconds.
 \end{enumerate}
 
-\subsubsection{Safety-Critical Requirements}
-\begin{enumerate}
-    \item The system shall ensure the integrity of the data stored within it.
-\end{enumerate}
-
 \subsubsection{Reliability and Availability Requirements}
-\begin{enumerate}
+\begin{enumerate}[R{A}R1]
     \item The system shall have a 99\% uptime.
     \item The system shall always make all data stored within its ecosystem available to the user through the application and through the user's operating system's default file management system.
 \end{enumerate}
 
 \subsubsection{Robustness or Fault-Tolerance Requirements}
-\begin{enumerate}
+\begin{enumerate}[RFR1]
     \item The system will keep data integrity upon spontaneous shutdown.
     \item The system will automatically create backups of data.
 \end{enumerate}
 
 \subsubsection{Capacity Requirements}
-\begin{enumerate}
+\begin{enumerate}[CR1]
     \item The system must allow individual file sizes of up to 4GB.
     \item The system must allow total capacity file sizes of at least 128GB.
 \end{enumerate}
 
 \subsubsection{Scalability or Extensiblity Requirements}
-\begin{enumerate}
+\begin{enumerate}[SER1]
     \item The system shall be forwards compatible with new file formats.
     \item The system shall be open for addition of new features.
     \item The system shall make its data available in a human-readable, non-proprietary format.
 \end{enumerate}
 
 \subsubsection{Longevity Requirements}
-\begin{enumerate}
+\begin{enumerate}[LOR1]
     \item The system shall use current software engineering standards and protocols.
 \end{enumerate}
 
 \subsection{Operational and Environmental Requirements}
-\subsubsection{Expected Physical Environment}
-\begin{enumerate}
+\subsubsection{Expected Physical Environment Requirements}
+\begin{enumerate}[EPE1]
     \item The application shall be used in calm environmental conditions.
 \end{enumerate}
 
 \subsubsection{Requirements for Interfacing with Adjacent Systems}
-\begin{enumerate}
+\begin{enumerate}[R{I}{A}1]
     \item The application shall interface with Windows, MacOS, and Linux platforms.
     \item The application shall interface with the files provided by the user.
 \end{enumerate}
 
 \subsubsection{Productization Requirements}
-\begin{enumerate}
+\begin{enumerate}[PRO1]
     \item The product shall be distributed as an executable file corresponding to the interfaced platform.
     \item The product shall be offered to users free of charge.
 \end{enumerate}
 
 \subsubsection{Release Requirements}
-\begin{enumerate}
+\begin{enumerate}[RR1]
     \item New releases of the product shall be produced in conjunction with stakeholder feedback.
 \end{enumerate}
 
 \subsection{Maintainability and Support Requirements}
 \subsubsection{Maintenance Requirements}
-\begin{enumerate}
+\begin{enumerate}[MR1]
     \item The software shall not be in maintenance and inaccessible to the user for more than 2 hours each day.
     \item The software shall be maintained at night in North America to affect the least amount of North American users.
 \end{enumerate}
 
 \subsubsection{Supportability Requirements}
-\begin{enumerate}
+\begin{enumerate}[SUR1]
     \item The software shall provide access to a help manual.
     \item A tutorial on the application's functionality shall be presented the first time the software is launched.
 \end{enumerate}
 
 \subsection{Security Requirements}
 \subsubsection{Access Requirements}
-\begin{enumerate}
+\begin{enumerate}[{A}CR1]
     \item The system shall store associated files in a user-accessible location.
 \end{enumerate}
 
 \subsubsection{Integrity Requirements}
-\begin{enumerate}
+\begin{enumerate}[{I}NT1]
     \item The system shall not introduce security vulnerabilities to the underlying OS file system structures.
     \item The system shall not create, corrupt, modify, or delete files not managed by the system.
 \end{enumerate}
 
 \subsubsection{Privacy Requirements}
-\begin{enumerate}
+\begin{enumerate}[PR{I}1]
     \item The system shall not transmit or share the user's file contents and information.
     \item The system shall explicitly prompt the user to agree to any use of the user's data deviating from the core file management and manipulation functionality.
 \end{enumerate}
+
+\section{User Profiles and Personas}
+\subsection{User Profiles}
+WRITE SOMETHING HERE
+
+\subsection{Personas}
+A persona is a hypothetical individual that represents the typical user for Project Imacs. Based on independent research and speaking with people who currently use note taking software, we summarized some common personas for Project Imacs.
+
+\subsubsection{Janet, Student}
+Janet is a 20 year old commerce student who is trying to understand how contribution margins effect a company's performance. She has notes on contribution margins; however, contribution margins affect many areas of businesses such as R\&D, marketing, operations, and finance. She wants to be able to relate contribution to each department's performance so that she can get a better sense of how the business performs overall.
+
+\subsubsection{Timothy, Researcher}
+Timothy is a 40 year old researcher who classifies organisms for a living. He has notes for every organism he observes; however, he would like to be able to find organisms with similar attributes and group them together. Currently, he has a large database of animals, and he requires the help of an information technology student in order to effectively search and find the database. He would like to be able to visualize the different organisms he documented independently.
 
 \end{document}
