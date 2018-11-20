@@ -10,6 +10,7 @@
     <input type="button" id="btn-readfile" value="Read the file" />
     <input type="button" id="btn-updatefile" value="Update the file" />
     <input type="button" id="btn-deletefile" value="Delete the file" />
+    <input type="button" id="btn-view-dir" value="View current directory" />
   </body>
   <script>
     const fs = require('fs');
@@ -96,6 +97,13 @@
                 alert("The file has been deleted");
             });
         });
+    }, false);
+
+    // Run ls on the current directory.
+    document.getElementById("btn-view-dir").addEventListener("click", () => {
+        var files = fs.readdirSync('.');
+        var out = document.location.pathname + "\n" + files;
+        alert(out);
     }, false);
 
   </script>
