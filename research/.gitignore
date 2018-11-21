@@ -1,0 +1,39 @@
+/**/configuration/docker/delivery
+
+######################
+# Files
+######################
+**/*~
+**/*.tmp
+**/*.idea
+**/*.iml
+**/*.jar
+**/*.war
+**/*.log
+**/*.bat
+**/*.sass-cache
+**/*.old
+**/*.xz
+**/*.ex
+**/*.sqlite3
+**/*.dsc
+**/*.tar.gz
+**/*.changes
+**/*.deb
+
+Thumbs.db
+
+######################
+# Directories
+######################
+/dist
+/**/*/bower_components
+/**/*/node_modules
+/**/*/obj
+/**/MyScript Math Sample/bin
+/**/*/SharePointTaskPaneAddInWebFormItem
+/**/*/dist
+/**/*/delivery
+/**/*/pkg
+/**/*/pkgobj
+
