@@ -90,3 +90,8 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+# Latex
+*.log
+*.pdf
+*.syntex.gz
