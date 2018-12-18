@@ -65,6 +65,32 @@ Contains raw Unicode/ASCII data.
 
 ## Modules
 
+### Overview
+- Main // Primary process that launches the GUI process
+  - uses: App
+
+- App // Application framework and GUI logic
+  - uses: DataManagement
+  - EditorComponent // Provides editing capabilities
+    - TextEditorComponent // Provides editing capabilities for textual notes
+    - HandwritingEditorComponent // Provides editing capabilities for hand written notes
+      - uses: HandWritingParser
+  - SettingsComponent // Provides an interface for managing application settings
+  - GraphViewComponent // Provides a application controlled wrapper for the graph
+                          visualizations
+    - uses: D3Graph
+
+- DataManagement // Provides application logic for searching, retrieving and managing data
+  - uses: FileSystemInterfacer
+  - GraphSearcher // Provides searching functionality based on graph metadata and nodes
+                     relations
+  - GraphFilter // used to retrieve subtrees
+
+- D3Graph // Provides visualizations and event handling for the graph
+- HandWritingParser // Provides an API for extracting textual data from hand written notes
+- FileSystemInterfacer // provides low level API for file IO
+
+
 ### Low Level File IO and File Management
 This group of modules will expose APIs for performing the actual file IO and file
 management. The modules will contain information about the structure of the data and how
@@ -80,3 +106,14 @@ The view layer will be solely responsible for providing an interface based on da
 by the Application Logic layer. The view layer will make extensive use of the APIs exposed
 by the Application Logic layer to hand of actual task execution and will update rendered
 data when the Application Logic layer performs changes to the renderable data.
+
+### D3 Graph
+An object that will be responsible for rendering and managing the D3 visualizations.
+Communication between the D3 Graph and the client will be through a call to the Init
+function at the start, then through data streams to provide the client with streams of
+data
+
+#### Methods
+- Init: Initialize the D3 graph at runtime when the containing host element and dimensions
+  are known
+- Render: Given data, render the visualization and interactive elements
