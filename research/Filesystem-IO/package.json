@@ -4,7 +4,7 @@
   "description": "Proof of Concept - Filesystem",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "parcel serve --target electron -o app.bundle.js app.js",
     "start": "electron ."
   },
   "repository": {
@@ -19,6 +19,7 @@
   "homepage": "https://github.com/BigBlockDataChain/morbo#readme",
   "dependencies": {},
   "devDependencies": {
-    "electron": "^3.0.12"
+    "electron": "^3.0.12",
+    "parcel-bundler": "^1.11.0"
   }
 }
